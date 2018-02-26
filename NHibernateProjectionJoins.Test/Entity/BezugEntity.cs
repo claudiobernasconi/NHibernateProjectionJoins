@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NHibernateProjectionJoins
+namespace NHibernateProjectionJoins.Entity
 {
 	public class BezugEntity
 	{

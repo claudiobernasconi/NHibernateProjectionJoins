@@ -1,4 +1,4 @@
-﻿namespace NHibernateProjectionJoins
+﻿namespace NHibernateProjectionJoins.Model
 {
 	public class BezugModel
 	{

@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
+using NHibernateProjectionJoins.Entity;
 
 namespace NHibernateProjectionJoins.Mappings
 {

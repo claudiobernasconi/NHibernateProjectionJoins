@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NHibernate;
 
-namespace NHibernateProjectionJoins
+namespace NHibernateProjectionJoins.Util
 {
 	[DeploymentItem("System.Data.SQLite.dll")]
 	[DeploymentItem("x86\\SQLite.Interop.dll", "x86")]

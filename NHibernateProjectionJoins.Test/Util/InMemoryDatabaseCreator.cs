@@ -14,7 +14,7 @@ using NHibernate.Mapping.ByCode;
 using NHibernate.Tool.hbm2ddl;
 using NHConfig = NHibernate.Cfg;
 
-namespace NHibernateProjectionJoins
+namespace NHibernateProjectionJoins.Util
 {
 	public class InMemoryDatabaseCreator : IDisposable
 	{

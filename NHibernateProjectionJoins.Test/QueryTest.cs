@@ -1,5 +1,8 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NHibernateProjectionJoins.Entity;
+using NHibernateProjectionJoins.Model;
+using NHibernateProjectionJoins.Util;
 
 namespace NHibernateProjectionJoins
 {
