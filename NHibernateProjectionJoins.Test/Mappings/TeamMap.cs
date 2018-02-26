@@ -5,18 +5,17 @@ using NHibernateProjectionJoins.Entity;
 
 namespace NHibernateProjectionJoins.Mappings
 {
-	public class BezugMap : ClassMapping<BezugEntity>
+	public class TeamMap : ClassMapping<TeamEntity>
 	{
-		public BezugMap()
+		public TeamMap()
 		{
-			Table("DalTest_Bezug");
+			Table("DalTest_Team");
 			Lazy(false);
 			SelectBeforeUpdate(true);
 			IdMapping();
 			VersionMapping();
 
-			Property(prop => prop.Status, Status);
-			Property(prop => prop.BezugseinheitId, BezugseinheitId);
+			Property(prop => prop.Shortname, Shortname);
 		}
 
 		private void IdMapping()
@@ -24,24 +23,17 @@ namespace NHibernateProjectionJoins.Mappings
 			Id(p => p.Id,
 				id =>
 				{
-					id.Access(Accessor.Field);
-					id.Column("Bezug_Id");
+					id.Access(Accessor.Property);
+					id.Column("Team_Id");
 					id.Generator(Generators.Assigned);
 				});
 		}
 
-		private void Status(IPropertyMapper propertyMapper)
+		private void Shortname(IPropertyMapper propertyMapper)
 		{
-			propertyMapper.Column("Status");
+			propertyMapper.Column("Shortname");
 			propertyMapper.Type(NHibernateUtil.String);
 			propertyMapper.Length(100);
-			propertyMapper.NotNullable(false);
-		}
-
-		private void BezugseinheitId(IPropertyMapper propertyMapper)
-		{
-			propertyMapper.Column("Bezugseinheit_Id");
-			propertyMapper.Type(NHibernateUtil.Int32);
 			propertyMapper.NotNullable(false);
 		}
 
@@ -50,7 +42,7 @@ namespace NHibernateProjectionJoins.Mappings
 			Version(p => p.ModifiedDate, v =>
 			{
 				v.Access(Accessor.NoSetter);
-				v.Type(new global::NHibernate.Type.DbTimestampType());
+				v.Type(new NHibernate.Type.DbTimestampType());
 				v.Generated(VersionGeneration.Never);
 			});
 		}

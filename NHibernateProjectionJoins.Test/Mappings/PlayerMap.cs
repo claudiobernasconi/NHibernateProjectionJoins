@@ -5,17 +5,18 @@ using NHibernateProjectionJoins.Entity;
 
 namespace NHibernateProjectionJoins.Mappings
 {
-	public class BezugseinheitMap : ClassMapping<BezugseinheitEntity>
+	public class PlayerMap : ClassMapping<PlayerEntity>
 	{
-		public BezugseinheitMap()
+		public PlayerMap()
 		{
-			Table("DalTest_Bezug");
+			Table("DalTest_Player");
 			Lazy(false);
 			SelectBeforeUpdate(true);
 			IdMapping();
 			VersionMapping();
 
-			Property(prop => prop.Steuerebene, Steuerebene);
+			Property(prop => prop.Name, Name);
+			Property(prop => prop.TeamId, TeamId);
 		}
 
 		private void IdMapping()
@@ -23,17 +24,24 @@ namespace NHibernateProjectionJoins.Mappings
 			Id(p => p.Id,
 				id =>
 				{
-					id.Access(Accessor.Field);
-					id.Column("Bezug_Id");
+					id.Access(Accessor.Property);
+					id.Column("Player_Id");
 					id.Generator(Generators.Assigned);
 				});
 		}
 
-		private void Steuerebene(IPropertyMapper propertyMapper)
+		private void Name(IPropertyMapper propertyMapper)
 		{
-			propertyMapper.Column("Steuerebene");
+			propertyMapper.Column("Name");
 			propertyMapper.Type(NHibernateUtil.String);
 			propertyMapper.Length(100);
+			propertyMapper.NotNullable(false);
+		}
+
+		private void TeamId(IPropertyMapper propertyMapper)
+		{
+			propertyMapper.Column("Team_Id");
+			propertyMapper.Type(NHibernateUtil.Int32);
 			propertyMapper.NotNullable(false);
 		}
 
@@ -42,7 +50,7 @@ namespace NHibernateProjectionJoins.Mappings
 			Version(p => p.ModifiedDate, v =>
 			{
 				v.Access(Accessor.NoSetter);
-				v.Type(new global::NHibernate.Type.DbTimestampType());
+				v.Type(new NHibernate.Type.DbTimestampType());
 				v.Generated(VersionGeneration.Never);
 			});
 		}

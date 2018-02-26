@@ -14,20 +14,20 @@ namespace NHibernateProjectionJoins
 		{
 			using (var session = OpenSession())
 			{
-				var query = from bezugseinheit in session.Query<BezugseinheitEntity>()
-						.Select(bezugseinheit => new BezugseinheitModel
+				var query = from team in session.Query<TeamEntity>()
+						.Select(team => new TeamModel
 						{
-							Id = bezugseinheit.Id,
-							Steuerebene = bezugseinheit.Steuerebene
+							TeamId = team.Id,
+							Shortname = team.Shortname
 						})
-							join bezug in session.Query<BezugEntity>()
-								on bezugseinheit.Id equals bezug.BezugseinheitId
-							select new BezugModel
+							join player in session.Query<PlayerEntity>()
+								on team.TeamId equals player.TeamId
+							select new PlayerModel
 							{
-								BezugId = bezug.Id,
-								BezugseinheitId = bezugseinheit.Id,
-								Steuerebene = bezugseinheit.Steuerebene,
-								Status = bezug.Status
+								PlayerId = player.Id,
+								TeamId = team.TeamId,
+								Shortname = team.Shortname,
+								Name = player.Name
 							};
 
 				query.ToList();
@@ -39,20 +39,20 @@ namespace NHibernateProjectionJoins
 		{
 			using (var session = OpenSession())
 			{
-				var query = from bezug in session.Query<BezugEntity>()
-							join bezugseinheit in session.Query<BezugseinheitEntity>()
-					.Select(bezugseinheit => new BezugseinheitModel
+				var query = from player in session.Query<PlayerEntity>()
+							join team in session.Query<TeamEntity>()
+					.Select(team => new TeamModel
 					{
-						Id = bezugseinheit.Id,
-						Steuerebene = bezugseinheit.Steuerebene
+						TeamId = team.Id,
+						Shortname = team.Shortname
 					})
-						on bezug.BezugseinheitId equals bezugseinheit.Id
-							select new BezugModel
+						on player.TeamId equals team.TeamId
+							select new PlayerModel
 							{
-								BezugId = bezug.Id,
-								BezugseinheitId = bezugseinheit.Id,
-								Steuerebene = bezugseinheit.Steuerebene,
-								Status = bezug.Status
+								PlayerId = player.Id,
+								TeamId = team.TeamId,
+								Shortname = team.Shortname,
+								Name = player.Name
 							};
 
 				query.ToList();

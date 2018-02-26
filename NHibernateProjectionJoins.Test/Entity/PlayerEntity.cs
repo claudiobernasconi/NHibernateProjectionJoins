@@ -2,11 +2,11 @@
 
 namespace NHibernateProjectionJoins.Entity
 {
-	public class BezugEntity
+	public class PlayerEntity
 	{
-		public long Id { get; set; }
-		public string Status { get; set; }
-		public long BezugseinheitId { get; set; }
+		public virtual long Id { get; set; }
+		public virtual string Name { get; set; }
+		public virtual long TeamId { get; set; }
 
 		private DateTime _modifiedDate = default;
 

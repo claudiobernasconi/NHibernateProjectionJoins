@@ -2,10 +2,10 @@
 
 namespace NHibernateProjectionJoins.Entity
 {
-	public class BezugseinheitEntity
+	public class TeamEntity
 	{
-		public long Id { get; set; }
-		public string Steuerebene { get; set; }
+		public virtual long Id { get; set; }
+		public virtual string Shortname { get; set; }
 
 		private DateTime _modifiedDate = default;
 

@@ -72,12 +72,12 @@
     <Reference Include="System.Transactions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\BezugEntity.cs" />
-    <Compile Include="Mappings\BezugMap.cs" />
-    <Compile Include="Mappings\BezugseinheitMap.cs" />
-    <Compile Include="Model\BezugModel.cs" />
-    <Compile Include="Entity\BezugseinheitEntity.cs" />
-    <Compile Include="Model\BezugseinheitModel.cs" />
+    <Compile Include="Entity\PlayerEntity.cs" />
+    <Compile Include="Mappings\TeamMap.cs" />
+    <Compile Include="Mappings\PlayerMap.cs" />
+    <Compile Include="Model\PlayerModel.cs" />
+    <Compile Include="Entity\TeamEntity.cs" />
+    <Compile Include="Model\TeamModel.cs" />
     <Compile Include="Util\InMemoryDatabaseCreator.cs" />
     <Compile Include="Util\InMemoryDatabaseTest.cs" />
     <Compile Include="QueryTest.cs" />
