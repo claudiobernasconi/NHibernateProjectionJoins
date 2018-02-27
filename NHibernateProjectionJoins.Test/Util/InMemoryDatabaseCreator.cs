@@ -86,7 +86,7 @@ namespace NHibernateProjectionJoins.Util
 				.SetProperty(NHConfig.Environment.PropertyBytecodeProvider, BytecodeProviderType.Lcg.ToString())
 				.SetProperty(NHConfig.Environment.PropertyUseReflectionOptimizer, bool.TrueString)
 				.SetProperty(NHConfig.Environment.QueryStartupChecking, bool.FalseString)
-				.SetProperty(NHConfig.Environment.ShowSql, bool.FalseString)
+				.SetProperty(NHConfig.Environment.ShowSql, bool.TrueString)
 				.SetProperty(NHConfig.Environment.UseProxyValidator, bool.FalseString)
 				.SetProperty(NHConfig.Environment.UseSecondLevelCache, bool.FalseString)
 				.SetProperty(NHConfig.Environment.UseSqlComments, bool.FalseString)
